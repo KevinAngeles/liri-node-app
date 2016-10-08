@@ -150,21 +150,23 @@ function spotify(m)
 
 function getMovie(m)
 {
-	var movieQ = "https://www.omdbapi.com/?t="+m+"&y=&plot=short&r=json";
+	var movieQ = "https://www.omdbapi.com/?t="+m+"&y=&plot=short&tomatoes=true&p&r=json";
 	movieQ = movieQ.replace(/\s/g, "+");
 	var request = require('request');
 
-	request(movieQ, function (error, response, body) {
+	request(movieQ, function (error, response, data) {
 		if (!error && response.statusCode == 200)
 		{
-			var d = JSON.parse(body);
+			var d = JSON.parse(data);
 			var result = "Title of the movie: "+d.Title+"\n"+
 				"Year the movie came out: "+d.Year+"\n"+
 				"IMDB Rating of the movie: "+d.imdbRating+"\n"+
 				"Country where the movie was produced: "+d.Country+"\n"+
 				"Language of the movie: "+d.Language+"\n"+
 				"Plot of the movie: "+d.Plot+"\n"+
-				"Actors in the movie: "+d.Actors+"\n";
+				"Actors in the movie: "+d.Actors+"\n"+
+				"Rotten Tomatoes Rating: "+d.tomatoRating+"\n"+
+				"Rotten Tomatoes URL: "+d.tomatoURL+"\n";
 			logHistory = logHistory + result;
 			console.log(result);
 		}
