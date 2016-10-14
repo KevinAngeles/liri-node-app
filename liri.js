@@ -124,7 +124,7 @@ function spotify(m)
 		{
 			if(data.tracks.items.length>0)
 			{
-				var track = data.tracks.items[0]
+				var track = data.tracks.items[0];
 				var res = "Artist(s): "+track.artists[0]["name"]+"\n"+"The song's name: "+track.name+"\n"+"A preview link of the song from Spotify: "+track.preview_url+"\n"+"The album that the song is from: "+track.album.name+"\n";
 				logHistory = logHistory + res + "\n";
 				console.log(res);
