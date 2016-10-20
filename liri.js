@@ -36,7 +36,6 @@ function executeMyAction(c,p)
 			}
 			break;
 		case "do-what-it-says":
-			var fs = require("fs");
 			logHistory = logHistory+" do-what-it-says\n";
 
 			fs.readFile("random.txt", "utf8", function(error, data){
